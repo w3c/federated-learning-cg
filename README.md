@@ -24,8 +24,8 @@ The purpose of the group is to establish and explore the necessary standards rel
 
 ## Other related activities
 * [ONNX.js](https://github.com/microsoft/onnxjs):
-  * is a Javascript library for running ONNX models on browsers and on Node.js
-  * has adopted WebAssembly and WebGL technologies for providing an optimized ONNX model inference runtime for both CPUs and GPUs
+  * ONNX.js is a Javascript library for running ONNX models on browsers and on Node.js
+  * ONNX.js has adopted WebAssembly and WebGL technologies for providing an optimized ONNX model inference runtime for both CPUs and GPUs
 
 
  ## How to join the group
