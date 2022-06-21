@@ -1,6 +1,12 @@
 # [W3C Federated Learning CG](https://www.w3.org/community/federated-learning/)
 The purpose of the group is to establish and explore the necessary standards related with the Web for federated learning via the analysis of current implementations related with federated learning such as TensorFlow Federated.
 
+The rough roadmap for FL CG is as follows:
+* Step 1: Gethering and analysis implementation information for federated learning
+* Step 2: Looking for the candidate items for W3C standards
+* Step 3: Writing down the CG report regarding federated learning
+* Step 4: Developing the draft of W3C spec related with federated learning
+
 ## Current implementations for federated learning
 * [TensorFlow Federated(TFF)](https://github.com/tensorflow/federated): 
   * TFF is an open-source framework for machine learning and other computations on decentralized data
