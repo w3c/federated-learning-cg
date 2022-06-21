@@ -2,6 +2,7 @@
 The purpose of the group is to establish and explore the necessary standards related with the Web for federated learning via the analysis of current implementations related with federated learning such as TensorFlow Federated.
 
 The rough roadmap for FL CG is as follows:
+(Timeline is TBD)
 * Step 1: Gathering and analysing implementation frameworks for federated learning
 * Step 2: Looking for the candidate items for W3C standards
 * Step 3: Writing down the CG report regarding federated learning
