@@ -272,12 +272,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <hr title="Separator for header">
   </div>
 		<section id="abstract" class="introductory"><h2>Abstract</h2>
-			<p>This proposal defines the <code>pageBreakSource</code> property to identify the source of page markers
-				and the page list in EPUB publications.</p>
+			<p>This proposal defines interfaces that enables the implementation and management of federated learning systems.</p>
 		</section>
 		<section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
       This specification was published by the
-      <a href="https://www.w3.org/groups/cg/publishingcg">Publishing Community Group</a>. It is not a W3C Standard nor is it
+      <a href="https://www.w3.org/groups/cg/federated-learning">Federated Learning Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
       
             Please note that under the
@@ -287,63 +286,27 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p><p>
-    <a href="https://github.com/w3c/publ-a11y/issues/">GitHub Issues</a> are preferred for
+    <a href="https://github.com/w3c/federated-learning-cg/issues/">GitHub Issues</a> are preferred for
           discussion of this specification.
         
     
-  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">1.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#sec-terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#pageBreakSource"><bdi class="secno">2. </bdi>The <code>pageBreakSource</code> property</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#pageBreakSource-definition"><bdi class="secno">2.1 </bdi>Definition</a></li><li class="tocline"><a class="tocxref" href="#examples"><bdi class="secno">2.2 </bdi>Examples</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">1.1 </bdi>Background</a></li><li class="tocline"><a class="tocxref" href="#sec-terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 		<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
 			
 
 			<section id="background"><div class="header-wrapper"><h3 id="x1-1-background"><bdi class="secno">1.1 </bdi>Background</h3><a class="self-link" href="#background" aria-label="Permalink for Section 1.1"></a></div>
 				
 
-				<p>Providing navigation to static page break markers is a key accessibility feature for digital
-					publications that are used in both print and digital formats in the same environment (e.g.,
-					classrooms). But without a means of identifying what edition of a static work the page navigation
-					corresponds to, it is impossible for users to determine if the publication will be sufficient for
-					their needs. For example, if a class uses a softcover edition of a book and the EPUB publication
-					pagination corresponds to the hardcover, digital users will not be able to access the same page
-					break locations.</p>
+				<p>The scope of the Federated Learning API specification encompasses the development of a standardized interface that enables the implementation and management of federated learning systems. 
+          It focuses on the communication and coordination between central servers and client devices participating in federated learning, with an emphasis on privacy-preserving machine learning techniques. 
+          The specification covers the interactions, protocols, and data formats necessary for secure and efficient model training across decentralized devices. </p>
 
-				<p>How to identify the source of pagination has been a continuing problem in the EPUB 3 metadata. The
-					original idea was to use a <a href="https://www.w3.org/TR/epub/#sec-opf-dcmes-optional-def"><code>dc:source</code> element</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">epub-3</a></cite>] to specify the pagination. This method proved
-					unreliable both for machine verification that the EPUB creator had set the method and to extract and
-					present the information to users. Publishers sometimes specify multiple sources for their
-					publications in multiple <code>dc:source</code> elements, making it impossible for a machine to
-					determine which identifies the source.</p>
-
-				<p>To address this problem, the specification then introduced a "<a href="https://www.w3.org/TR/epub/#attrdef-refines">refinement</a>" [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">epub-3</a></cite>] property called <a href="https://www.w3.org/TR/epub/#sec-source-of"><code>source-of</code></a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">epub-3</a></cite>] whose
-					only purpose was to indicate which <code>dc:source</code> property identified the source.</p>
-
-				<p>Since its addition, however, two additional problems have surfaced with this approach:</p>
-
-				<ol>
-					<li>It was defined in a way that makes it unique to EPUB 3's metadata format. When the
-							<code>refines</code> attribute was nearly dropped in EPUB 3.1, it exposed that there was
-						still no other way to express this information. Consequently, future formats cannot rely on the
-							<code>source-of</code> property.</li>
-					<li>Relying on <code>dc:source</code> confuses how to state that a digital-only publication does not
-						have a source for its markers. EPUB creators have resorted to identifying the current
-						publication as the source of itself or saying that the publication has a source of nothing for
-						the pagination, neither of which makes much sense logically and are at best hacks of the
-						metadata. Omitting a <code>dc:source</code>, while accurate in this situation, makes validation
-						difficult as it cannot be determined whether the EPUB creator simply forgot to specify the
-						source.</li>
-				</ol>
-
-				<p>The <code>pageBreakSource</code> property proposed in this document is intended to provide a simple
-					and reliable solution to these problems moving forward.</p>
 			</section>
 
 			<section id="sec-terminology"><div class="header-wrapper"><h3 id="x1-2-terminology"><bdi class="secno">1.2 </bdi>Terminology</h3><a class="self-link" href="#sec-terminology" aria-label="Permalink for Section 1.2"></a></div>
-				
-
-				<p>This specification uses <a href="https://www.w3.org/TR/epub/#sec-terminology">terminology defined in
-						EPUB 3</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-3" title="EPUB 3">epub-3</a></cite>].</p>
 
 				<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><div class="">
-					<p>Only the first instance of a term in a section links to its definition.</p>
+					<p>Need to be developed.</p>
 				</div></div>
 			</section>
 
@@ -355,91 +318,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         when, and only when, they appear in all capitals, as shown here.
       </p></section>
 		</section>
-		<section id="pageBreakSource"><div class="header-wrapper"><h2 id="x2-the-pagebreaksource-property"><bdi class="secno">2. </bdi>The <code>pageBreakSource</code> property</h2><a class="self-link" href="#pageBreakSource" aria-label="Permalink for Section 2."></a></div>
-			
-
-			<section id="pageBreakSource-definition"><div class="header-wrapper"><h3 id="x2-1-definition"><bdi class="secno">2.1 </bdi>Definition</h3><a class="self-link" href="#pageBreakSource-definition" aria-label="Permalink for Section 2.1"></a></div>
-				
-
-				<table class="tabledef">
-					<tbody><tr>
-						<th>Name:</th>
-						<td>
-							<code>pageBreakSource</code>
-						</td>
-					</tr>
-					<tr>
-						<th>Description:</th>
-						<td>
-							<p>Provides a unique identifier for the source of the page break markers in an <a href="https://www.w3.org/TR/epub/#dfn-epub-publication">EPUB publication</a>.</p>
-							<p>The identifier should be expressed as a URN when the value conforms to a recognized
-								scheme such as an ISBN.</p>
-							<p>If a unique identifier does not exist for the source, EPUB creators should use a text
-								description that identifies the source as clearly as possible (e.g., the title of a word
-								processing document).</p>
-							<p>If the page break markers are unique to the EPUB publication (e.g., for a digital-only
-								edition), EPUB creators <em class="rfc2119">MUST</em> specify the value "<code>none</code>".</p>
-						</td>
-					</tr>
-					<tr>
-						<th>Allowed value(s):</th>
-						<td>
-							<code>xsd:string</code>
-						</td>
-					</tr>
-					<tr>
-						<th>Cardinality:</th>
-						<td>Exactly one when the publication includes a page list and/or page break markers, otherwise
-							0.</td>
-					</tr>
-				</tbody></table>
-			</section>
-
-			<section id="examples"><div class="header-wrapper"><h3 id="x2-2-examples"><bdi class="secno">2.2 </bdi>Examples</h3><a class="self-link" href="#examples" aria-label="Permalink for Section 2.2"></a></div>
-				
-
-				<aside class="example" id="example-pagination-from-a-source-with-a-unique-identifier"><div class="marker">
-    <a class="self-link" href="#example-pagination-from-a-source-with-a-unique-identifier">Example<bdi> 1</bdi></a><span class="example-title">: Pagination from a source with a unique identifier</span>
-  </div>
-					<p>In this example, the pagination corresponds to a print edition with an ISBN number. A URN is used
-						to identify the scheme the number conforms to.</p>
-					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span>
-    <span class="hljs-attr">property</span>=<span class="hljs-string">"pageBreakSource"</span>&gt;</span>
-   urn:isbn:9780010010001
-<span class="hljs-tag">&lt;/<span class="hljs-name">meta</span>&gt;</span></code></pre>
-				</aside>
-
-				<aside class="example" id="example-pagination-without-a-source"><div class="marker">
-    <a class="self-link" href="#example-pagination-without-a-source">Example<bdi> 2</bdi></a><span class="example-title">: Pagination without a source</span>
-  </div>
-					<p>In this example, the publisher has added the page break markers and page list for a digital-only
-						edition. The value <code>none</code> indicates that the pagination is not drawn from another
-						source.</p>
-					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span>
-    <span class="hljs-attr">property</span>=<span class="hljs-string">"pageBreakSource"</span>&gt;</span>
-   none
-<span class="hljs-tag">&lt;/<span class="hljs-name">meta</span>&gt;</span></code></pre>
-				</aside>
-
-				<aside class="example" id="example-pagination-from-a-source-without-a-unique-identifier"><div class="marker">
-    <a class="self-link" href="#example-pagination-from-a-source-without-a-unique-identifier">Example<bdi> 3</bdi></a><span class="example-title">: Pagination from a source without a unique identifier</span>
-  </div>
-					<p>In this example, the name of the document and its format are used to identify the source of the
-						pagination.</p>
-					<pre aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span>
-    <span class="hljs-attr">property</span>=<span class="hljs-string">"pageBreakSource"</span>&gt;</span>
-   Hobo eReader User Manual. PDF: https://example.org/manuals/hobo/
-<span class="hljs-tag">&lt;/<span class="hljs-name">meta</span>&gt;</span></code></pre>
-				</aside>
-			</section>
-		</section>
-	
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
     
-    <dl class="bibliography"><dt id="bib-epub-3">[epub-3]</dt><dd>
-      <a href="https://www.w3.org/TR/epub/"><cite>EPUB 3</cite></a>.  W3C. URL: <a href="https://www.w3.org/TR/epub/">https://www.w3.org/TR/epub/</a>
-    </dd><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
