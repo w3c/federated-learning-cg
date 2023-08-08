@@ -10,7 +10,7 @@ The rough roadmap for FL CG is as follows:
 
 ## Federated Learning API
  * Current version: [Editor's draft of Federated Learning API](https://w3c.github.io/federated-learning-cg/reports/index.html)
- * Justification for federated learing API: Why federated learning APIs are actually required? Does it enough that each federated learning framework has its own specific API, not a standard API?
+ * Justification for clarification of this work: Why federated learning APIs are actually required? Does it enough that each federated learning framework has its own specific API, not a standard API?
  * Version 0.1 : Initial Draft (06.30)
  * Version 0.3 : Use cases (09.15)
  * Version 0.5 : Enhancing use cases and requirements (10.15)
