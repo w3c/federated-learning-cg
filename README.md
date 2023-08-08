@@ -35,6 +35,8 @@ The rough roadmap for FL CG is as follows:
   * It is meant to provide a solid basis for federated learning that enables a large variety of federated learning models, topologies, learning models, in enterprise and hybrid-Cloud settings
 * [NVIDIA CLARA](https://developer.nvidia.com/clara)
   * NVIDIA CLARA is an application framework designed for healthcare use cases. It includes full-stack GPU-accelerated libraries, SDKs, and reference applications for developers, data scientists, and researchers to create real-time, secure, and scalable federated learning solutions
+* [Integrated.ai](https://www.integrate.ai/)
+  * integrate.ai is the safe data collaboration platform that enables data science leaders to activate data silos by moving models, not data 
 
 
 ## Other related activities
