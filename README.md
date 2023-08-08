@@ -10,10 +10,10 @@ The rough roadmap for FL CG is as follows:
 
 ## Federated Learning API
  * Current version: [Editor's draft of Federated Learning API](https://w3c.github.io/federated-learning-cg/reports/index.html)
- * Version 0.1 (06.30):
- * Version 0.3 (09.15):
- * Version 0.5 (10.15):
- * Version 0.6 (11.30):
+ * Version 0.1 : Initial Draft (06.30)
+ * Version 0.3 : Use cases (09.15)
+ * Version 0.5 : Enhancing use cases and requirements (10.15)
+ * Version 0.6 : Initial API description (12.15)
      
 ## Current implementations for federated learning
 * [TensorFlow Federated(TFF)](https://github.com/tensorflow/federated): 
