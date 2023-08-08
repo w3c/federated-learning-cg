@@ -51,7 +51,7 @@ The rough roadmap for FL CG is as follows:
   * Why Wasm for ML?: Trained machine learning models are typically deployed on a variety of devices with different architectures and operating systems. WebAssembly provides an ideal portable form of deployment for those models
   * Why WASI?: Although a whole machine learning framework could be potentially compiled into Wasm, special hardware acceleration is often needed in order to be performant. For example, SIMD instructions such as AVX512 on a CPU can speed up performance by several hundred times. Other hardware acclerator examples are GPU, TPU, FPGA. All of those acceleration mechanisms are not available within Wasm. In addition, the field of machine learning is still evolving rapidly, with new operations and network topologies emerging continuously. It would be a challenge to define an evolving set of operations to support in the API 
 
-## References
+## references
 * 2020.06, [연합학습 기술 동향 및 산업적 시사점](https://ksp.etri.re.kr/ksp/plan-report/file?id=791)
 * 2022.06, [산업분야에서 연합학습 동향 및 시사점](https://www.koren.kr/lib/Common/Com/ComDownload.asp?ttp=brd1&tno=1498)
 
