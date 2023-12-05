@@ -324,6 +324,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">2.8 </bdi>Extensibility and Compatibility</a></li>        
       </ol>
     </li>
+    <li class="tocline"><a class="tocxref" href="#methodology"><bdi class="secno">3. </bdi>Methodology</a>
+      <ol class="toc">
+        <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">3.1 </bdi>Parameter Aggregation Strategies</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">3.2 </bdi>Model Training and Optimization</a></li>
+        <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno">3.3 </bdi>Synchronous and Asynchronous Learning</a></li>
+        <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">3.4 </bdi>Parameter Server Operations</a></li>
+      </ol>
+    </li>
 
     <li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a>
       <ol class="toc">
@@ -431,19 +439,23 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
 		</section>
 
+    <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">3.1 </bdi>Parameter Aggregation Strategies</a></li>
+    <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">3.2 </bdi>Model Training and Optimization</a></li>
+    <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno">3.3 </bdi>Synchronous and Asynchronous Learning</a></li>
+    <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">3.4 </bdi>Parameter Server Operations</a></li>
 
     <section id="methodology"><div class="header-wrapper"><h2 id="x2-methodology"><bdi class="secno">3. </bdi>Methodology</h2><a class="self-link" href="#methodology" aria-label="Permalink for Section 3."></a></div>
       <p>The methodologies section outlines the fundamental techniques and approaches to federated learning. 
 	      This section encompasses neural network parameter aggregation strategies, model training and optimization, synchronous and asynchronous learning, and parameter server operations.</p>    
 
-			<section id="dev-registration"><div class="header-wrapper"><h3 id="x3-1-para-aggregation"><bdi class="secno">3.1 </bdi>Parameter Aggregation Strategies</h3><a class="self-link" href="#para-aggregation" aria-label="Permalink for Section 3.1"></a></div>
+			<section id="para-aggr-stra"><div class="header-wrapper"><h3 id="x3-1-para-aggr-stra"><bdi class="secno">3.1 </bdi>Parameter Aggregation Strategies</h3><a class="self-link" href="#para-aggr-stra" aria-label="Permalink for Section 3.1"></a></div>
 				
 				<p>The foundational algorithms for federated learning, Federated Averaging, or FedAvg, aggregates model updates by averaging them.
 					The central server calculates a weighted average based on the number of data points from each client.</p>
 
 			</section>
 
-			<section id="data-upload"><div class="header-wrapper"><h3 id="x3-2-model-training"><bdi class="secno">3.2 </bdi>Model Training and Optimization</h3><a class="self-link" href="#model-training" aria-label="Permalink for Section 3.2"></a></div>
+			<section id="model-train-opt"><div class="header-wrapper"><h3 id="x3-2-model-train-opt"><bdi class="secno">3.2 </bdi>Model Training and Optimization</h3><a class="self-link" href="#model-train-opt" aria-label="Permalink for Section 3.2"></a></div>
 
 				<p>For model training, clients can use their local data to train models. The frequency of synchronization with the central server varies based on 
 					the algorithm and design decisions. To further ensure data privacy, noise can be added to model updates, providing differential privacy.
@@ -451,14 +463,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="model-sync"><div class="header-wrapper"><h3 id="x3-3-sync-learning"><bdi class="secno">3.3 </bdi>Synchronous and Asynchronous Learning</h3><a class="self-link" href="#sync-learning" aria-label="Permalink for Section 3.3"></a></div>
+			<section id="sync-async-learn"><div class="header-wrapper"><h3 id="x3-3-sync-async-learn"><bdi class="secno">3.3 </bdi>Synchronous and Asynchronous Learning</h3><a class="self-link" href="#sync-async-learn" aria-label="Permalink for Section 3.3"></a></div>
 
         <p>Depending on the application, federated learning can operate in synchronous mode (all clients send updates simultaneously) or asynchronous mode (clients send updates at different times).
 	The bandwidth optimization techniques such as model compression or quantization can be used to reduce the size of model updates, optimizing for limited bandwidth scenarios.</p>
 
 			</section>
 
-			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x3-4-para-server"><bdi class="secno">3.4 </bdi>Parameter Server Operations</h3><a class="self-link" href="#para-server" aria-label="Permalink for Section 3.4"></a></div>
+			<section id="para-server-op"><div class="header-wrapper"><h3 id="x3-4-para-server-op"><bdi class="secno">3.4 </bdi>Parameter Server Operations</h3><a class="self-link" href="#para-server-op" aria-label="Permalink for Section 3.4"></a></div>
 
         <p> A hierarchical structure can be used where multiple local aggregators collect updates before sending to the central server for large-scale deployments. Techniques and tools to optimize 
 		parameter server, such as model pruning of neural network, can be supported to make federated learning more optimalize for resource-constrained devices.
