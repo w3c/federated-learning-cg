@@ -12,9 +12,9 @@ The rough roadmap for FL CG is as follows:
  * Current version: [Editor's draft of Federated Learning API](https://w3c.github.io/federated-learning-cg/reports/index.html)
  * Justification for clarification of this work: Why federated learning standard APIs are actually required? Does it enough that each federated learning framework has its own specific API, not a standard API?
  * Version 0.1 : [Federated Learning API 0.1](https://w3c.github.io/federated-learning-cg/reports/index-0.1.html) (09.07)
- * Version 0.3 : Methodology (10.30)
- * Version 0.5 : Enhancing use cases and requirements (11.30)
- * Version 0.6 : Initial API description (12.15)
+ * Version 0.4 : [Federated Learning API 0.4](https://w3c.github.io/federated-learning-cg/reports/index-0.4.html) (12.06)
+ * Version 0.5 : Enhancing use cases and requirements (12.30)
+ * Version 0.6 : Initial API description (xx.xx)
      
 ## Current implementations for federated learning
 * [TensorFlow Federated(TFF)](https://github.com/tensorflow/federated): 
