@@ -157,7 +157,7 @@ a code
 }
 
 </style>
-<meta name="description" content="This proposal defines interfaces that enables the implementation and management of federated learning systems.">
+<meta name="description" content="This proposal aims to define the requirements for interfaces that enable the implementation and management of federated learning systems.">
 <link rel="canonical" href="https://w3c.github.io/federated-learning-cg/reports/index.html">
 <style>
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
@@ -345,9 +345,32 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </nav>
 		<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
 
-			<p>The scope of the Requirements for Federated Learning API specification encompasses the development of a standardized interface that enables the implementation and management of federated learning systems. 
-          It focuses on the communication and coordination between central servers and client devices participating in federated learning, with an emphasis on privacy-preserving machine learning techniques. 
-          The specification covers the interactions, protocols, and data formats necessary for secure and efficient model training across decentralized devices. </p>
+			<p>
+        The scope of the requirements for Federated Learning API specification encompasses the development of a standardized interface that enables the implementation and management of federated learning systems. 
+        It focuses on the communication and coordination between central servers and client devices participating in federated learning, with an emphasis on privacy-preserving machine learning techniques. 
+        The specification covers the interactions, protocols, and data formats necessary for secure and efficient model training across decentralized devices. 
+      </p>
+
+        <figure id="federated-learning">
+          <img src="images/intro1.png" alt="Basic process of executing federated learning">
+          <figcaption> <span class="fig-title">Basic process of executing federated learning </span></figcaption>
+        </figure>
+
+      <p>
+        The Figure illustrates the basic process of executing federated learning after configuration of central server and client nodes, and setup the topology of model to client nodes.
+        <ol>
+          <li>Model Training Initiation: Each database B1, B2, ..., Bk is used at their respective client nodes. Each client node uses its local database to train a model independently. </li>
+          <li>Sending Encrypted Gradients: The gradients (which are the necessary information to update the model) from the trained model are encrypted and sent to central server A. This step is marked as (1) in the diagram.</li>
+          <li>Secure Aggregation: Server A securely aggregates the encrypted gradients received from various clients. This step is represented as (2) in the diagram. At this stage, the server combines the updates from all clients into one aggregated update.</li>
+          <li>Sending Back Model Updates: The aggregated update is then sent back to each client node, as indicated by (3) in the diagram. This ensures that each client's model is kept up-to-date.</li>
+          <li>Updating Models: Client nodes update their models using the updates received from the server, which is shown as (4) in the diagram. This updating process is iterative.</li>
+          <li></li>            
+        </ol>  
+      </p>
+			<p>
+        Through the process, the central server effectively trains a model without having to access the actual data from clients, thereby ensuring data privacy while leveraging the learning capabilities of multiple clients with distributed data.
+        The key technical aspects of federated learning are described in Section 4, and requirements are described in Section 5. 
+      </p>
 
     </section>
 
