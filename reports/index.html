@@ -523,38 +523,38 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p>
       Followings are the steps shown in the diagram:
       <ol>
-        <li>Initial Global Model: The process starts with the server having an initial global model.</li>
-        <li>Sending New Model to Clients: The server sends this initial model to the clients.</li>
-        <li>Local Training and Testing: Each client (Client 1, Client 2, etc.) then trains and tests the model with their local data. This is referred to as 'local model 1' and 'local model 2' for each respective client.</li>
-        <li>Requesting Local Models: After training, the server requests the updated local models from the clients.</li>
-        <li>Sending Local Models to Server: The clients send their locally trained models back to the server.</li>       
-        <li>Aggregation of Local Models: The server aggregates these local models. This could involve averaging the weights or applying more complex aggregation algorithms.</li> 
-        <li>Sending Updated Global Model: Finally, the server sends the updated global model back to the clients, and the process can repeat, as indicated by the loop in the diagram.</li>    
+        <li><b>Initial Global Model</b>: The process starts with the server having an initial global model.</li>
+        <li><b>Sending New Model to Clients</b>: The server sends this initial model to the clients.</li>
+        <li><b>Local Training and Testing</b>: Each client (Client 1, Client 2, etc.) then trains and tests the model with their local data. This is referred to as 'local model 1' and 'local model 2' for each respective client.</li>
+        <li><b>Requesting Local Models</b>: After training, the server requests the updated local models from the clients.</li>
+        <li><b>Sending Local Models to Server</b>: The clients send their locally trained models back to the server.</li>       
+        <li><b>Aggregation of Local Models</b>: The server aggregates these local models. This could involve averaging the weights or applying more complex aggregation algorithms.</li> 
+        <li><b>Sending Updated Global Model</b>: Finally, the server sends the updated global model back to the clients, and the process can repeat, as indicated by the loop in the diagram.</li>    
       </ol>  
     </p>
     <p>
       This iterative process improves the global model over time while preserving the privacy of the local data. Followings are candidates or example of high-level API descriptions for web federated learning, considering the above steps: 
     </p>
     <p>
-      Model and parameter transmission API:
+      <b>Model and parameter transmission API:</b>
       <ol>
-        <li>Distribute global model {/api/post/global-model}: Server use this endpoint to send the latest global model to the client. The client responds with the model file or parameters acceptance.</li>
-        <li>Get local model {/api/get/local-model}: Clients send their locally trained model updates to this API. The request includes model parameters and possibly metadata about the local training.</li>
-        <li>Request updated weights of local model {/api/post/local-model}: The server requests the trained model weights from the clients.</li>
-        <li>Get global model {/api/global-mode}l: Clients fetch the current global model from the server.</li>
-        <li>Aggregate models {/api/model/aggregate}: The server receives models from the clients to trigger the aggregation process. The response would contain the aggregated model parameters.</li>       
+        <li><b>Distribute global model {/api/post/global-model}</b>: Server use this endpoint to send the latest global model to the client. The client responds with the model file or parameters acceptance.</li>
+        <li><b>Get local model {/api/get/local-model}</b>: Clients send their locally trained model updates to this API. The request includes model parameters and possibly metadata about the local training.</li>
+        <li><b>Request updated weights of local model {/api/post/local-model}</b>: The server requests the trained model weights from the clients.</li>
+        <li><b>Get global model {/api/global-mode}l</b>: Clients fetch the current global model from the server.</li>
+        <li><b>Aggregate models {/api/model/aggregate}</b>: The server receives models from the clients to trigger the aggregation process. The response would contain the aggregated model parameters.</li>       
       </ol>  
     </p>
     <p>
-      Federated Learning execution and management API:
+      <b>Federated Learning execution and management API:</b>
       <ol>
-        <li>Load model {/api/models/load}: The server loads a global model into the training environment. The request payload includes the model identifier or path to the model file.</li>    
-        <li>Initiating learning {/api/training/start}: The server initiates the federated learning algorithms. This API should include training parameters such as batch size, number of epochs, and learning rate.</li>
-        <li>Configuration of schedule {/api/training/schedule}: The server schedules training tasks. The request could specify timing, frequency, and priority of updating or aggregation of parameters.</li>
-        <li>Model evaluation {/api/evaluation/start}: The server starts the evaluation of the global model using a validation dataset. The request should include details about the dataset and evaluation metrics.</li>
-        <li>Post evaluation {/api/evaluation/results}: Clients or server fetch the evaluation results after the computation is complete.</li>
-        <li>Training status management {/api/training/status}: Clients or server query the status of the training process and status, including progress and any errors.</li>
-        <li>Control training process {/api/training/control}: Allows pausing, resuming, or stopping the training process as needed. The request specifies the control action to be taken.</li>       
+        <li><b>Load model {/api/models/load}</b>: The server loads a global model into the training environment. The request payload includes the model identifier or path to the model file.</li>    
+        <li><b>Initiating learning {/api/training/start}</b>: The server initiates the federated learning algorithms. This API should include training parameters such as batch size, number of epochs, and learning rate.</li>
+        <li><b>Configuration of schedule {/api/training/schedule}</b>: The server schedules training tasks. The request could specify timing, frequency, and priority of updating or aggregation of parameters.</li>
+        <li><b>Model evaluation {/api/evaluation/start}</b>: The server starts the evaluation of the global model using a validation dataset. The request should include details about the dataset and evaluation metrics.</li>
+        <li><b>Post evaluation {/api/evaluation/results}</b>: Clients or server fetch the evaluation results after the computation is complete.</li>
+        <li><b>Training status management {/api/training/status}</b>: Clients or server query the status of the training process and status, including progress and any errors.</li>
+        <li><b>Control training process {/api/training/control}</b>: Allows pausing, resuming, or stopping the training process as needed. The request specifies the control action to be taken.</li>       
       </ol>  
     </p>
 
