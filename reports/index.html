@@ -319,9 +319,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <ol class="toc">
         <li class="tocline"><a class="tocxref" href="#parameter-client-server-assignment"><bdi class="secno">4.1 </bdi>Parameter Client-server Assignment</a></li>
         <li class="tocline"><a class="tocxref" href="#model-distribution-strategy"><bdi class="secno">4.2 </bdi>Model Distribution Strategy</a></li>
-        <li class="tocline"><a class="tocxref" href="#parameter-aggregation-strategies"><bdi class="secno"4.3 </bdi>Parameter Aggregation Strategies</a></li>
+        <li class="tocline"><a class="tocxref" href="#parameter-aggregation-strategies"><bdi class="secno">4.3 </bdi>Parameter Aggregation Strategies</a></li>
         <li class="tocline"><a class="tocxref" href="#model-training-and-optimization"><bdi class="secno">4.4 </bdi>Model Training and Optimization</a></li>
-        <li class="tocline"><a class="tocxref" href="#synchronous-and-asynchronous-learning"><bdi class="secno"4.5 </bdi>Synchronous and Asynchronous Learning</a></li>         
+        <li class="tocline"><a class="tocxref" href="#synchronous-and-asynchronous-learning"><bdi class="secno">4.5 </bdi>Synchronous and Asynchronous Learning</a></li>         
         <li class="tocline"><a class="tocxref" href="#parameter-server-operations"><bdi class="secno">4.6 </bdi>Parameter Server Operations</a></li>
   
       </ol>
@@ -510,6 +510,55 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
   </section>
 		
+  <section id="example-of-federated-learning-api"><div class="header-wrapper"><h2 id="x6-example-of-federated-learning-api"><bdi class="secno">6. </bdi>Example of Federated Learning API</h2><a class="self-link" href="#example-of-federated-learning-api" aria-label="Permalink for Section 6."></a></div>
+
+    <p>The sequence diagram depicts a federated learning process involving a server and multiple client nodes. 
+    </p>
+
+      <figure id="federated-learning-process">
+        <img src="images/example1.jpg" alt="federated learning process involving a server and multiple client nodes">
+        <figcaption> <span class="fig-title">Figure 2. Federated Learning Process involving a Server and Multiple Client Nodes</span></figcaption>
+      </figure>
+
+    <p>
+      Followings are the steps shown in the diagram:
+      <ol>
+        <li>Initial Global Model: The process starts with the server having an initial global model.</li>
+        <li>Sending New Model to Clients: The server sends this initial model to the clients.</li>
+        <li>Local Training and Testing: Each client (Client 1, Client 2, etc.) then trains and tests the model with their local data. This is referred to as 'local model 1' and 'local model 2' for each respective client.</li>
+        <li>Requesting Local Models: After training, the server requests the updated local models from the clients.</li>
+        <li>Sending Local Models to Server: The clients send their locally trained models back to the server.</li>       
+        <li>Aggregation of Local Models: The server aggregates these local models. This could involve averaging the weights or applying more complex aggregation algorithms.</li> 
+        <li>Sending Updated Global Model: Finally, the server sends the updated global model back to the clients, and the process can repeat, as indicated by the loop in the diagram.</li>    
+      </ol>  
+    </p>
+    <p>
+      This iterative process improves the global model over time while preserving the privacy of the local data. Followings are candidates or example of high-level API descriptions for web federated learning, considering the above steps: 
+    </p>
+    <p>
+      Model and parameter transmission API:
+      <ol>
+        <li>Distribute global model {/api/post/global-model}: Server use this endpoint to send the latest global model to the client. The client responds with the model file or parameters acceptance.</li>
+        <li>Get local model {/api/get/local-model}: Clients send their locally trained model updates to this API. The request includes model parameters and possibly metadata about the local training.</li>
+        <li>Request updated weights of local model {/api/post/local-model}: The server requests the trained model weights from the clients.</li>
+        <li>Get global model {/api/global-mode}l: Clients fetch the current global model from the server.</li>
+        <li>Aggregate models {/api/model/aggregate}: The server receives models from the clients to trigger the aggregation process. The response would contain the aggregated model parameters.</li>       
+      </ol>  
+    </p>
+    <p>
+      Federated Learning execution and management API:
+      <ol>
+        <li>Load model {/api/models/load}: The server loads a global model into the training environment. The request payload includes the model identifier or path to the model file.</li>    
+        <li>Initiating learning {/api/training/start}: The server initiates the federated learning algorithms. This API should include training parameters such as batch size, number of epochs, and learning rate.</li>
+        <li>Configuration of schedule {/api/training/schedule}: The server schedules training tasks. The request could specify timing, frequency, and priority of updating or aggregation of parameters.</li>
+        <li>Model evaluation {/api/evaluation/start}: The server starts the evaluation of the global model using a validation dataset. The request should include details about the dataset and evaluation metrics.</li>
+        <li>Post evaluation {/api/evaluation/results}: Clients or server fetch the evaluation results after the computation is complete.</li>
+        <li>Training status management {/api/training/status}: Clients or server query the status of the training process and status, including progress and any errors.</li>
+        <li>Control training process {/api/training/control}: Allows pausing, resuming, or stopping the training process as needed. The request specifies the control action to be taken.</li>       
+      </ol>  
+    </p>
+
+  </section>
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
     
