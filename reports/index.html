@@ -314,27 +314,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li>
     <li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li>
     <li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li>
-    <li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">3. </bdi>Conformance</a></li>    
-    <li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">4. </bdi>Requirements</a>
+    <li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">3. </bdi>Conformance</a></li>  
+    <li class="tocline"><a class="tocxref" href="#key-technical-aspects"><bdi class="secno">4. </bdi>Key Technical Aspects</a>
       <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">4.1 </bdi>Device Registration</a></li>
-        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">4.2 </bdi>Data Upload</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">4.3 </bdi>Model Synchronization</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">4.4 </bdi>Model Evaluation</a></li>
-        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">4.5 </bdi>Result Retrieval</a></li>
-        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">4.6 </bdi>Training Control</a></li>        
-        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">4.7 </bdi>Security and Privacy</a></li>
-        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">4.8 </bdi>Extensibility and Compatibility</a></li>        
+        <li class="tocline"><a class="tocxref" href="#parameter-client-server-assignment"><bdi class="secno">4.1 </bdi>Parameter Client-server Assignment</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-distribution-strategy"><bdi class="secno">4.2 </bdi>Model Distribution Strategy</a></li>
+        <li class="tocline"><a class="tocxref" href="#parameter-aggregation-strategies"><bdi class="secno"4.3 </bdi>Parameter Aggregation Strategies</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-training-and-optimization"><bdi class="secno">4.4 </bdi>Model Training and Optimization</a></li>
+        <li class="tocline"><a class="tocxref" href="#synchronous-and-asynchronous-learning"><bdi class="secno"4.5 </bdi>Synchronous and Asynchronous Learning</a></li>         
+        <li class="tocline"><a class="tocxref" href="#parameter-server-operations"><bdi class="secno">4.6 </bdi>Parameter Server Operations</a></li>
+  
+      </ol>
+    </li>      
+    <li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">5. </bdi>Requirements</a>
+      <ol class="toc">
+        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">5.1 </bdi>Device Registration</a></li>
+        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">5.2 </bdi>Data Upload</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">5.3 </bdi>Model Synchronization</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">5.4 </bdi>Model Evaluation</a></li>
+        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">5.5 </bdi>Result Retrieval</a></li>
+        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">5.6 </bdi>Training Control</a></li>        
+        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">5.7 </bdi>Security and Privacy</a></li>
+        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">5.8 </bdi>Extensibility and Compatibility</a></li>        
       </ol>
     </li>
-    <li class="tocline"><a class="tocxref" href="#methodology"><bdi class="secno">5. </bdi>Methodology</a>
-      <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">5.1 </bdi>Parameter Aggregation Strategies</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">5.2 </bdi>Model Training and Optimization</a></li>
-        <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno"5.3 </bdi>Synchronous and Asynchronous Learning</a></li>
-        <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">5.4 </bdi>Parameter Server Operations</a></li>
-      </ol>
-    </li>
+
 
     <li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a>
       <ol class="toc">
@@ -353,7 +357,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
         <figure id="federated-learning">
           <img src="images/intro1.png" alt="Basic process of executing federated learning">
-          <figcaption> <span class="fig-title">Basic process of executing federated learning </span></figcaption>
+          <figcaption> <span class="fig-title">Figure 1. Basic process of executing federated learning </span></figcaption>
         </figure>
 
       <p>
@@ -363,13 +367,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           <li>Sending Encrypted Gradients: The gradients (which are the necessary information to update the model) from the trained model are encrypted and sent to central server A. This step is marked as (1) in the diagram.</li>
           <li>Secure Aggregation: Server A securely aggregates the encrypted gradients received from various clients. This step is represented as (2) in the diagram. At this stage, the server combines the updates from all clients into one aggregated update.</li>
           <li>Sending Back Model Updates: The aggregated update is then sent back to each client node, as indicated by (3) in the diagram. This ensures that each client's model is kept up-to-date.</li>
-          <li>Updating Models: Client nodes update their models using the updates received from the server, which is shown as (4) in the diagram. This updating process is iterative.</li>
-          <li></li>            
+          <li>Updating Models: Client nodes update their models using the updates received from the server, which is shown as (4) in the diagram. This updating process is iterative.</li>          
         </ol>  
       </p>
 			<p>
         Through the process, the central server effectively trains a model without having to access the actual data from clients, thereby ensuring data privacy while leveraging the learning capabilities of multiple clients with distributed data.
-        The key technical aspects of federated learning are described in Section 4, and requirements are described in Section 5. 
+        The key technical aspects of federated learning are described in Chapter 4, and requirements are described in Chapter 5. 
       </p>
 
     </section>
@@ -392,13 +395,55 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       </p>
     </section>
 
+    <section id="key-technical-aspects"><div class="header-wrapper"><h2 id="x4-key-technical-aspects"><bdi class="secno">4. </bdi>Key Technical Aspects</h2><a class="self-link" href="#key-technical-aspects" aria-label="Permalink for Section 4."></a></div>
+      <p>The key technical aspects section outlines the fundamental techniques and approaches to federated learning. This section encompasses the fundamental techniques and approaches for executing federated learning including configuration of parameter servers and clients, node and model assignment, 
+         parameter aggregation strategies, model training and optimization, synchronous and asynchronous learning, and parameter server operations.</p>    
 
-    <section id="requirements"><div class="header-wrapper"><h2 id="x4-requirements"><bdi class="secno">4. </bdi>Requirements</h2><a class="self-link" href="#requirements" aria-label="Permalink for Section 2."></a></div>
+			<section id="parameter-client-server-assignment"><div class="header-wrapper"><h3 id="x4-1-parameter-client-server-assignment"><bdi class="secno">4.1 </bdi>Parameter Server-client Assignment</h3><a class="self-link" href="#parameter-client-server-assignment" aria-label="Permalink for Section 4.1"></a></div>
+				<p>The parameter server and the clients are essential components for executing federated learning. The parameter server acts as a centralized repository for model parameters, while clients perform model training using local data.</p>
+        <ul>
+          <li>Parameter server setup: The parameter server manages the parameters of the trained model and aggregates updates received from clients. It maintains the current state of the model and, when necessary, distributes model updates to the clients.</li>
+          <li>Client assignment and configuration: Each client independently trains a model using its local data. Clients send updates generated during the training process back to the parameter server.</li>
+        </ul>
+				<p>Client nodes are assigned specific models or parts of a model. This assignment varies depending on the client's processing capabilities, the type and amount of data held, and their network location. Efficient node assignment is crucial for optimizing the overall system performance.</p>
+			</section>
+
+			<section id="model-distribution-strategy"><div class="header-wrapper"><h3 id="x4-2-model-distribution-strategy"><bdi class="secno">4.2 </bdi>Model Distribution Strategy</h3><a class="self-link" href="#model-distribution-strategy" aria-label="Permalink for Section 4.2"></a></div>			
+				<p>Model distribution is a key part of federated learning, determining the type and scope of models assigned to clients.</p>
+        <ul>
+          <li>Full model distribution: Each client receives the full model. This ensures that every node has the same topology of the model, leading to uniformity in training and evaluation processes across the network.</li>
+          <li>Model splitting: For large-scale models, the model can be divided into several parts and assigned across different clients. This allows for parallel processing of model training and reduces the computational burden on individual clients.</li>
+          <li>Customizable topologies: The customization of model topology is possible for specific federated learning task. Dynamic assignments can be adapted to changes in network conditions, client availability, and data distribution.</li>
+        </ul>
+				<p>Client nodes are assigned specific models or parts of a model. This assignment varies depending on the client's processing capabilities, the type and amount of data held, and their network location. Efficient node assignment is crucial for optimizing the overall system performance.</p>
+			</section>
+
+			<section id="parameter-aggregation-strategies"><div class="header-wrapper"><h3 id="x4-3-parameter-aggregation-strategies"><bdi class="secno">4.3 </bdi>Parameter Aggregation Strategies</h3><a class="self-link" href="#parameter-aggregation-strategies" aria-label="Permalink for Section 4.3"></a></div>			
+				<p>The foundational algorithms for federated learning, Federated Averaging, or FedAvg, aggregates model updates by averaging them. The central server calculates a weighted average based on the number of data points from each client.</p>
+			</section>  
+
+			<section id="model-training-and-optimization"><div class="header-wrapper"><h3 id="x4-4-model-training-and-optimization"><bdi class="secno">4.4 </bdi>Model Training and Optimization</h3><a class="self-link" href="#model-training-and-optimization" aria-label="Permalink for Section 4.4"></a></div>			
+				<p>For model training, clients can use their local data to train models. The frequency of synchronization with the central server varies based on the algorithm and design decisions. To further ensure data privacy, noise can be added to model updates, providing differential privacy. 
+          This protects individual data points while allowing the central model to learn general patterns.</p>
+			</section> 
+
+			<section id="synchronous-and-asynchronous-learning"><div class="header-wrapper"><h3 id="x4-5-synchronous-and-asynchronous-learning"><bdi class="secno">4.5 </bdi>Synchronous and Asynchronous Learning</h3><a class="self-link" href="#synchronous-and-asynchronous-learning" aria-label="Permalink for Section 4.5"></a></div>			
+				<p>Depending on the application, federated learning can operate in synchronous mode (all clients send updates simultaneously) or asynchronous mode (clients send updates at different times). The bandwidth optimization techniques such as model compression or quantization can be used to reduce the size of model updates, 
+          optimizing for limited bandwidth scenarios.</p>
+			</section>       
+
+			<section id="parameter-server-operations"><div class="header-wrapper"><h3 id="x4-6-parameter-server-operations"><bdi class="secno">4.6 </bdi>Parameter Server Operations</h3><a class="self-link" href="#parameter-server-operations" aria-label="Permalink for Section 4.6"></a></div>			
+				<p>A hierarchical structure can be used where multiple local aggregators collect updates before sending to the central server for large-scale deployments. Techniques and tools to optimize parameter server, such as model pruning of neural network, can be supported to make federated learning more optimalize for resource-constrained devices.</p>
+			</section>   
+
+		</section>
+
+    <section id="requirements"><div class="header-wrapper"><h2 id="x5-requirements"><bdi class="secno">5. </bdi>Requirements</h2><a class="self-link" href="#requirements" aria-label="Permalink for Section 5."></a></div>
       <p>The functional requirements for Federated Learning API outline the essential capabilities and specifications necessary to enable seamless communication, 
         secure data transmission, and effective coordination of federated learning systems. These requirements encompass device registration, data upload, model synchronization, 
         evaluation, result retrieval, training control, and ensuring security and privacy measures.</p>    
 
-			<section id="dev-registration"><div class="header-wrapper"><h3 id="x4-1-dev-registration"><bdi class="secno">4.1 </bdi>Device Registration</h3><a class="self-link" href="#dev-registration" aria-label="Permalink for Section 2.1"></a></div>
+			<section id="dev-registration"><div class="header-wrapper"><h3 id="x5-1-dev-registration"><bdi class="secno">5.1 </bdi>Device Registration</h3><a class="self-link" href="#dev-registration" aria-label="Permalink for Section 5.1"></a></div>
 				
 				<p>The API should allow devices or clients to securely register themselves with the federated learning system. 
           The API should allow devices or clients to securely register themselves with the federated learning system. 
@@ -406,7 +451,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="data-upload"><div class="header-wrapper"><h3 id="x4-2-data-upload"><bdi class="secno">4.2 </bdi>Data Upload</h3><a class="self-link" href="#data-upload" aria-label="Permalink for Section 2.2"></a></div>
+			<section id="data-upload"><div class="header-wrapper"><h3 id="x5-2-data-upload"><bdi class="secno">5.2 </bdi>Data Upload</h3><a class="self-link" href="#data-upload" aria-label="Permalink for Section 5.2"></a></div>
 
 				<p>The API should enable clients to securely upload their locally held data to the central server or coordinator for model training. 
           It should support various data formats and provide guidelines for data serialization and transmission. 
@@ -414,7 +459,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="model-sync"><div class="header-wrapper"><h3 id="x4-3-model-sync"><bdi class="secno">4.3 </bdi>Model Synchronization</h3><a class="self-link" href="#model-sync" aria-label="Permalink for Section 2.3"></a></div>
+			<section id="model-sync"><div class="header-wrapper"><h3 id="x5-3-model-sync"><bdi class="secno">5.3 </bdi>Model Synchronization</h3><a class="self-link" href="#model-sync" aria-label="Permalink for Section 5.3"></a></div>
 
         <p>The API should handle the communication and synchronization of model parameters between the central server and client devices.
           It should provide endpoints for retrieving the current model state, sending model updates from clients to the server, and distributing updated models back to the clients.
@@ -422,7 +467,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x4-4-model-evaluation"><bdi class="secno">4.4 </bdi>Model Evaluation</h3><a class="self-link" href="#model-evaluation" aria-label="Permalink for Section 2.4"></a></div>
+			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x5-4-model-evaluation"><bdi class="secno">5.4 </bdi>Model Evaluation</h3><a class="self-link" href="#model-evaluation" aria-label="Permalink for Section 5.4"></a></div>
 
         <p>The API should include endpoints for clients to request model evaluation on their local data.
           It should support the transmission of evaluation requests and relevant data securely to the server.
@@ -430,7 +475,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>      
 
-			<section id="result-retrieval"><div class="header-wrapper"><h3 id="x4-5-result-retrieval"><bdi class="secno">4.5 </bdi>Result Retrieval</h3><a class="self-link" href="#result-retrieval" aria-label="Permalink for Section 2.4"></a></div>
+			<section id="result-retrieval"><div class="header-wrapper"><h3 id="x5-5-result-retrieval"><bdi class="secno">5.5 </bdi>Result Retrieval</h3><a class="self-link" href="#result-retrieval" aria-label="Permalink for Section 5.4"></a></div>
 
         <p>The API should enable clients to retrieve the final trained model or other relevant results from the central server.
           It should provide endpoints for requesting and downloading the trained model or aggregated results.
@@ -438,7 +483,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="training-control"><div class="header-wrapper"><h3 id="x4-6-training-control"><bdi class="secno">4.6 </bdi>Training Control</h3><a class="self-link" href="#training-control" aria-label="Permalink for Section 2.4"></a></div>
+			<section id="training-control"><div class="header-wrapper"><h3 id="x5-6-training-control"><bdi class="secno">5.6 </bdi>Training Control</h3><a class="self-link" href="#training-control" aria-label="Permalink for Section 5.4"></a></div>
 
         <p>The API should allow for controlling the federated learning process, such as starting, pausing, or terminating model training.
           It should provide endpoints for managing training sessions, setting training parameters, and monitoring the progress of training.
@@ -446,7 +491,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="security-privacy"><div class="header-wrapper"><h3 id="x4-7-security-privacy"><bdi class="secno">4.7 </bdi>Security and Privacy</h3><a class="self-link" href="#security-privacy" aria-label="Permalink for Section 2.7"></a></div>
+			<section id="security-privacy"><div class="header-wrapper"><h3 id="x5-7-security-privacy"><bdi class="secno">5.7 </bdi>Security and Privacy</h3><a class="self-link" href="#security-privacy" aria-label="Permalink for Section 5.7"></a></div>
 
         <p>The API should incorporate security measures, such as authentication, encryption, and access control, to protect the federated learning system.
           It should ensure the privacy and confidentiality of data during transmission and storage.
@@ -454,7 +499,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="extensibility-compatibility"><div class="header-wrapper"><h3 id="x4-8-extensibility-compatibility"><bdi class="secno">4.8 </bdi>Extensibility and Compatibility</h3><a class="self-link" href="#extensibility-compatibility" aria-label="Permalink for Section 2.8"></a></div>
+			<section id="extensibility-compatibility"><div class="header-wrapper"><h3 id="x5-8-extensibility-compatibility"><bdi class="secno">5.8 </bdi>Extensibility and Compatibility</h3><a class="self-link" href="#extensibility-compatibility" aria-label="Permalink for Section 5.8"></a></div>
 
         <p>The API should be designed with extensibility in mind, allowing for the addition of new functionalities or endpoints in the future.
           It should be compatible with existing web standards and frameworks, facilitating integration with different software platforms and tools.</p>
@@ -463,49 +508,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
 		</section>
 
-    <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">5.1 </bdi>Parameter Aggregation Strategies</a></li>
-    <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">5.2 </bdi>Model Training and Optimization</a></li>
-    <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno">5.3 </bdi>Synchronous and Asynchronous Learning</a></li>
-    <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">5.4 </bdi>Parameter Server Operations</a></li>
-
-    <section id="methodology"><div class="header-wrapper"><h2 id="x5-methodology"><bdi class="secno">5. </bdi>Methodology</h2><a class="self-link" href="#methodology" aria-label="Permalink for Section 3."></a></div>
-      <p>The methodologies section outlines the fundamental techniques and approaches to federated learning. 
-	      This section encompasses neural network parameter aggregation strategies, model training and optimization, synchronous and asynchronous learning, and parameter server operations.</p>    
-
-			<section id="para-aggr-stra"><div class="header-wrapper"><h3 id="x5-1-para-aggr-stra"><bdi class="secno">5.1 </bdi>Parameter Aggregation Strategies</h3><a class="self-link" href="#para-aggr-stra" aria-label="Permalink for Section 3.1"></a></div>
-				
-				<p>The foundational algorithms for federated learning, Federated Averaging, or FedAvg, aggregates model updates by averaging them.
-					The central server calculates a weighted average based on the number of data points from each client.</p>
-
-			</section>
-
-			<section id="model-train-opt"><div class="header-wrapper"><h3 id="x5-2-model-train-opt"><bdi class="secno">5.2 </bdi>Model Training and Optimization</h3><a class="self-link" href="#model-train-opt" aria-label="Permalink for Section 3.2"></a></div>
-
-				<p>For model training, clients can use their local data to train models. The frequency of synchronization with the central server varies based on 
-					the algorithm and design decisions. To further ensure data privacy, noise can be added to model updates, providing differential privacy.
-					This protects individual data points while allowing the central model to learn general patterns.</p>
-
-			</section>
-
-			<section id="sync-async-learn"><div class="header-wrapper"><h3 id="x5-3-sync-async-learn"><bdi class="secno">5.3 </bdi>Synchronous and Asynchronous Learning</h3><a class="self-link" href="#sync-async-learn" aria-label="Permalink for Section 3.3"></a></div>
-
-        <p>Depending on the application, federated learning can operate in synchronous mode (all clients send updates simultaneously) or asynchronous mode (clients send updates at different times).
-	The bandwidth optimization techniques such as model compression or quantization can be used to reduce the size of model updates, optimizing for limited bandwidth scenarios.</p>
-
-			</section>
-
-			<section id="para-server-op"><div class="header-wrapper"><h3 id="x5-4-para-server-op"><bdi class="secno">5.4 </bdi>Parameter Server Operations</h3><a class="self-link" href="#para-server-op" aria-label="Permalink for Section 3.4"></a></div>
-
-        <p> A hierarchical structure can be used where multiple local aggregators collect updates before sending to the central server for large-scale deployments. Techniques and tools to optimize 
-		parameter server, such as model pruning of neural network, can be supported to make federated learning more optimalize for resource-constrained devices.
-
-</p>
-
-			</section>      
-
-      
-		</section>		
-
+  </section>
 		
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
