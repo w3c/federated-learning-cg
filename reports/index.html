@@ -312,31 +312,27 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   <ol class="toc">
     <li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li>
     <li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li>
-    <li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a>
+    <li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li>
+    <li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">2. </bdi>Terminology</a></li>
+    <li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">3. </bdi>Conformance</a></li>    
+    <li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">4. </bdi>Requirements</a>
       <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#background"><bdi class="secno">1.1 </bdi>Background</a></li>
-        <li class="tocline"><a class="tocxref" href="#sec-terminology"><bdi class="secno">1.2 </bdi>Terminology</a></li>
-        <li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.3 </bdi>Conformance</a></li>
+        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">4.1 </bdi>Device Registration</a></li>
+        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">4.2 </bdi>Data Upload</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">4.3 </bdi>Model Synchronization</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">4.4 </bdi>Model Evaluation</a></li>
+        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">4.5 </bdi>Result Retrieval</a></li>
+        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">4.6 </bdi>Training Control</a></li>        
+        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">4.7 </bdi>Security and Privacy</a></li>
+        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">4.8 </bdi>Extensibility and Compatibility</a></li>        
       </ol>
     </li>
-    <li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">2. </bdi>Requirements</a>
+    <li class="tocline"><a class="tocxref" href="#methodology"><bdi class="secno">5. </bdi>Methodology</a>
       <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">2.1 </bdi>Device Registration</a></li>
-        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">2.2 </bdi>Data Upload</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">2.3 </bdi>Model Synchronization</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">2.4 </bdi>Model Evaluation</a></li>
-        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">2.5 </bdi>Result Retrieval</a></li>
-        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">2.6 </bdi>Training Control</a></li>        
-        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">2.7 </bdi>Security and Privacy</a></li>
-        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">2.8 </bdi>Extensibility and Compatibility</a></li>        
-      </ol>
-    </li>
-    <li class="tocline"><a class="tocxref" href="#methodology"><bdi class="secno">3. </bdi>Methodology</a>
-      <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">3.1 </bdi>Parameter Aggregation Strategies</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">3.2 </bdi>Model Training and Optimization</a></li>
-        <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno">3.3 </bdi>Synchronous and Asynchronous Learning</a></li>
-        <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">3.4 </bdi>Parameter Server Operations</a></li>
+        <li class="tocline"><a class="tocxref" href="#para-aggr-stra"><bdi class="secno">5.1 </bdi>Parameter Aggregation Strategies</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-train-opt"><bdi class="secno">5.2 </bdi>Model Training and Optimization</a></li>
+        <li class="tocline"><a class="tocxref" href="#sync-async-learn"><bdi class="secno"5.3 </bdi>Synchronous and Asynchronous Learning</a></li>
+        <li class="tocline"><a class="tocxref" href="#para-server-op"><bdi class="secno">5.4 </bdi>Parameter Server Operations</a></li>
       </ol>
     </li>
 
@@ -348,32 +344,30 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </ol>
 </nav>
 		<section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
-			
 
-			<section id="background"><div class="header-wrapper"><h3 id="x1-1-background"><bdi class="secno">1.1 </bdi>Background</h3><a class="self-link" href="#background" aria-label="Permalink for Section 1.1"></a></div>
-				
-
-				<p>The scope of the Requirements for Federated Learning API specification encompasses the development of a standardized interface that enables the implementation and management of federated learning systems. 
+			<p>The scope of the Requirements for Federated Learning API specification encompasses the development of a standardized interface that enables the implementation and management of federated learning systems. 
           It focuses on the communication and coordination between central servers and client devices participating in federated learning, with an emphasis on privacy-preserving machine learning techniques. 
           The specification covers the interactions, protocols, and data formats necessary for secure and efficient model training across decentralized devices. </p>
 
-			</section>
+    </section>
 
-			<section id="sec-terminology"><div class="header-wrapper"><h3 id="x1-2-terminology"><bdi class="secno">1.2 </bdi>Terminology</h3><a class="self-link" href="#sec-terminology" aria-label="Permalink for Section 1.2"></a></div>
+		<section id="terminology"><div class="header-wrapper"><h2 id="x2-terminology"><bdi class="secno">2 </bdi>Terminology</h2><a class="self-link" href="#terminology" aria-label="Permalink for Section 1.2"></a></div>
 
-				<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><div class="">
-					<p>Need to be developed.</p>
-				</div></div>
-			</section>
+			<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><div class="">
+			  <p>Need to be developed.</p>
+	    </div>
+		</section>
 
-			<section id="conformance"><div class="header-wrapper"><h3 id="x1-3-conformance"><bdi class="secno">1.3 </bdi>Conformance</h3><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.3"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+		<section id="conformance"><div class="header-wrapper"><h2 id="x3-conformance"><bdi class="secno">3 </bdi>Conformance</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.3"></a></div>
+      <p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p>
+      <p>
         The key word <em class="rfc2119">MUST</em> in this document
         is to be interpreted as described in
         <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
         when, and only when, they appear in all capitals, as shown here.
-      </p></section>
-		</section>
+      </p>
+    </section>
 
 
     <section id="requirements"><div class="header-wrapper"><h2 id="x2-requirements"><bdi class="secno">2. </bdi>Requirements</h2><a class="self-link" href="#requirements" aria-label="Permalink for Section 2."></a></div>
