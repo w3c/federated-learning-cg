@@ -363,11 +363,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <p>
         The Figure illustrates the basic process of executing federated learning after configuration of central server and client nodes, and setup the topology of model to client nodes.
         <ol>
-          <li>Model Training Initiation: Each database B1, B2, ..., Bk is used at their respective client nodes. Each client node uses its local database to train a model independently. </li>
-          <li>Sending Encrypted Gradients: The gradients (which are the necessary information to update the model) from the trained model are encrypted and sent to central server A. This step is marked as (1) in the diagram.</li>
-          <li>Secure Aggregation: Server A securely aggregates the encrypted gradients received from various clients. This step is represented as (2) in the diagram. At this stage, the server combines the updates from all clients into one aggregated update.</li>
-          <li>Sending Back Model Updates: The aggregated update is then sent back to each client node, as indicated by (3) in the diagram. This ensures that each client's model is kept up-to-date.</li>
-          <li>Updating Models: Client nodes update their models using the updates received from the server, which is shown as (4) in the diagram. This updating process is iterative.</li>          
+          <li><b>Model Training Initiation</b>: Each database B1, B2, ..., Bk is used at their respective client nodes. Each client node uses its local database to train a model independently. </li>
+          <li><b>Sending Encrypted Gradients</b>: The gradients (which are the necessary information to update the model) from the trained model are encrypted and sent to central server A. This step is marked as (1) in the diagram.</li>
+          <li><b>Secure Aggregation</b>: Server A securely aggregates the encrypted gradients received from various clients. This step is represented as (2) in the diagram. At this stage, the server combines the updates from all clients into one aggregated update.</li>
+          <li><b>Sending Back Model Updates</b>: The aggregated update is then sent back to each client node, as indicated by (3) in the diagram. This ensures that each client's model is kept up-to-date.</li>
+          <li><b>Updating Models</b>: Client nodes update their models using the updates received from the server, which is shown as (4) in the diagram. This updating process is iterative.</li>          
         </ol>  
       </p>
 			<p>
@@ -402,8 +402,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			<section id="parameter-client-server-assignment"><div class="header-wrapper"><h3 id="x4-1-parameter-client-server-assignment"><bdi class="secno">4.1 </bdi>Parameter Server-client Assignment</h3><a class="self-link" href="#parameter-client-server-assignment" aria-label="Permalink for Section 4.1"></a></div>
 				<p>The parameter server and the clients are essential components for executing federated learning. The parameter server acts as a centralized repository for model parameters, while clients perform model training using local data.</p>
         <ul>
-          <li>Parameter server setup: The parameter server manages the parameters of the trained model and aggregates updates received from clients. It maintains the current state of the model and, when necessary, distributes model updates to the clients.</li>
-          <li>Client assignment and configuration: Each client independently trains a model using its local data. Clients send updates generated during the training process back to the parameter server.</li>
+          <li><b>Parameter server setup</b>: The parameter server manages the parameters of the trained model and aggregates updates received from clients. It maintains the current state of the model and, when necessary, distributes model updates to the clients.</li>
+          <li><b>Client assignment and configuration</b>: Each client independently trains a model using its local data. Clients send updates generated during the training process back to the parameter server.</li>
         </ul>
 				<p>Client nodes are assigned specific models or parts of a model. This assignment varies depending on the client's processing capabilities, the type and amount of data held, and their network location. Efficient node assignment is crucial for optimizing the overall system performance.</p>
 			</section>
@@ -411,9 +411,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 			<section id="model-distribution-strategy"><div class="header-wrapper"><h3 id="x4-2-model-distribution-strategy"><bdi class="secno">4.2 </bdi>Model Distribution Strategy</h3><a class="self-link" href="#model-distribution-strategy" aria-label="Permalink for Section 4.2"></a></div>			
 				<p>Model distribution is a key part of federated learning, determining the type and scope of models assigned to clients.</p>
         <ul>
-          <li>Full model distribution: Each client receives the full model. This ensures that every node has the same topology of the model, leading to uniformity in training and evaluation processes across the network.</li>
-          <li>Model splitting: For large-scale models, the model can be divided into several parts and assigned across different clients. This allows for parallel processing of model training and reduces the computational burden on individual clients.</li>
-          <li>Customizable topologies: The customization of model topology is possible for specific federated learning task. Dynamic assignments can be adapted to changes in network conditions, client availability, and data distribution.</li>
+          <li><b>Full model distribution</b>: Each client receives the full model. This ensures that every node has the same topology of the model, leading to uniformity in training and evaluation processes across the network.</li>
+          <li><b>Model splitting</b>: For large-scale models, the model can be divided into several parts and assigned across different clients. This allows for parallel processing of model training and reduces the computational burden on individual clients.</li>
+          <li><b>Customizable topologies</b>: The customization of model topology is possible for specific federated learning task. Dynamic assignments can be adapted to changes in network conditions, client availability, and data distribution.</li>
         </ul>
 				<p>Client nodes are assigned specific models or parts of a model. This assignment varies depending on the client's processing capabilities, the type and amount of data held, and their network location. Efficient node assignment is crucial for optimizing the overall system performance.</p>
 			</section>
