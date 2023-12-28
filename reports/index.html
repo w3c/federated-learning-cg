@@ -328,14 +328,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </li>      
     <li class="tocline"><a class="tocxref" href="#requirements"><bdi class="secno">5. </bdi>Requirements</a>
       <ol class="toc">
-        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">5.1 </bdi>Device Registration</a></li>
-        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">5.2 </bdi>Data Upload</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">5.3 </bdi>Model Synchronization</a></li>
-        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">5.4 </bdi>Model Evaluation</a></li>
-        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">5.5 </bdi>Result Retrieval</a></li>
-        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">5.6 </bdi>Training Control</a></li>        
-        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">5.7 </bdi>Security and Privacy</a></li>
-        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">5.8 </bdi>Extensibility and Compatibility</a></li>        
+        <li class="tocline"><a class="tocxref" href="#general-requirements"><bdi class="secno">5.1 </bdi>General Requirements</a></li>        
+        <li class="tocline"><a class="tocxref" href="#dev-registration"><bdi class="secno">5.2 </bdi>Device Registration</a></li>
+        <li class="tocline"><a class="tocxref" href="#data-upload"><bdi class="secno">5.3 </bdi>Data Upload</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-sync"><bdi class="secno">5.4 </bdi>Model Synchronization</a></li>
+        <li class="tocline"><a class="tocxref" href="#model-evaluation"><bdi class="secno">5.5 </bdi>Model Evaluation</a></li>
+        <li class="tocline"><a class="tocxref" href="#result-retrieval"><bdi class="secno">5.6 </bdi>Result Retrieval</a></li>
+        <li class="tocline"><a class="tocxref" href="#training-control"><bdi class="secno">5.7 </bdi>Training Control</a></li>        
+        <li class="tocline"><a class="tocxref" href="#security-privacy"><bdi class="secno">5.8 </bdi>Security and Privacy</a></li>
+        <li class="tocline"><a class="tocxref" href="#extensibility-compatibility"><bdi class="secno">5.9 </bdi>Extensibility and Compatibility</a></li>        
       </ol>
     </li>
 
@@ -440,11 +441,24 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 		</section>
 
     <section id="requirements"><div class="header-wrapper"><h2 id="x5-requirements"><bdi class="secno">5. </bdi>Requirements</h2><a class="self-link" href="#requirements" aria-label="Permalink for Section 5."></a></div>
-      <p>The functional requirements for Federated Learning API outline the essential capabilities and specifications necessary to enable seamless communication, 
-        secure data transmission, and effective coordination of federated learning systems. These requirements encompass device registration, data upload, model synchronization, 
-        evaluation, result retrieval, training control, and ensuring security and privacy measures.</p>    
+      <p>The functional requirements for Federated Learning API are produced in a high-level, functionally outline the essential 
+        capabilities and specifications necessary to enable seamless communication, secure data transmission, and effective 
+        coordination of federated learning systems. These requirements encompass device registration, data upload, 
+        model synchronization, evaluation, result retrieval, training control, and ensuring security and privacy measures.</p>    
 
-			<section id="dev-registration"><div class="header-wrapper"><h3 id="x5-1-dev-registration"><bdi class="secno">5.1 </bdi>Device Registration</h3><a class="self-link" href="#dev-registration" aria-label="Permalink for Section 5.1"></a></div>
+      <section id="general-requirements"><div class="header-wrapper"><h3 id="x5-1-general-requirements"><bdi class="secno">5.1 </bdi>General Requirements</h3><a class="self-link" href="#general-requirements" aria-label="Permalink for Section 5.1"></a></div>
+				
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>APIs <em title="should" class="rfc2119">should</em> be accessible through a unified and structured namespace to ensure ease of understanding.</li>
+          <li>APIs <em title="should" class="rfc2119">should</em> provide operation for cancellation and error handling to improve resilience and controllability.</li>
+          <li>APIs <em title="should" class="rfc2119">should</em> be designed for supporting compatibility across various platforms and devices.</li>
+          <li>The API architecture <em title="should" class="rfc2119">should</em> be extensible, allowing for upgrade and management without breaking existing functionality.</li>
+        </ul>
+  
+      </section>
+
+			<section id="dev-registration"><div class="header-wrapper"><h3 id="x5-2-dev-registration"><bdi class="secno">5.2 </bdi>Device Registration</h3><a class="self-link" href="#dev-registration" aria-label="Permalink for Section 5.2"></a></div>
 				
 				<p>The API should allow devices or clients to securely register themselves with the federated learning system. 
           The API should allow devices or clients to securely register themselves with the federated learning system. 
@@ -452,7 +466,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="data-upload"><div class="header-wrapper"><h3 id="x5-2-data-upload"><bdi class="secno">5.2 </bdi>Data Upload</h3><a class="self-link" href="#data-upload" aria-label="Permalink for Section 5.2"></a></div>
+			<section id="data-upload"><div class="header-wrapper"><h3 id="x5-3-data-upload"><bdi class="secno">5.3 </bdi>Data Upload</h3><a class="self-link" href="#data-upload" aria-label="Permalink for Section 5.3"></a></div>
 
 				<p>The API should enable clients to securely upload their locally held data to the central server or coordinator for model training. 
           It should support various data formats and provide guidelines for data serialization and transmission. 
@@ -460,7 +474,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="model-sync"><div class="header-wrapper"><h3 id="x5-3-model-sync"><bdi class="secno">5.3 </bdi>Model Synchronization</h3><a class="self-link" href="#model-sync" aria-label="Permalink for Section 5.3"></a></div>
+			<section id="model-sync"><div class="header-wrapper"><h3 id="x5-4-model-sync"><bdi class="secno">5.4 </bdi>Model Synchronization</h3><a class="self-link" href="#model-sync" aria-label="Permalink for Section 5.4"></a></div>
 
         <p>The API should handle the communication and synchronization of model parameters between the central server and client devices.
           It should provide endpoints for retrieving the current model state, sending model updates from clients to the server, and distributing updated models back to the clients.
@@ -468,7 +482,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x5-4-model-evaluation"><bdi class="secno">5.4 </bdi>Model Evaluation</h3><a class="self-link" href="#model-evaluation" aria-label="Permalink for Section 5.4"></a></div>
+			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x5-5-model-evaluation"><bdi class="secno">5.5 </bdi>Model Evaluation</h3><a class="self-link" href="#model-evaluation" aria-label="Permalink for Section 5.5"></a></div>
 
         <p>The API should include endpoints for clients to request model evaluation on their local data.
           It should support the transmission of evaluation requests and relevant data securely to the server.
@@ -476,7 +490,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>      
 
-			<section id="result-retrieval"><div class="header-wrapper"><h3 id="x5-5-result-retrieval"><bdi class="secno">5.5 </bdi>Result Retrieval</h3><a class="self-link" href="#result-retrieval" aria-label="Permalink for Section 5.4"></a></div>
+			<section id="result-retrieval"><div class="header-wrapper"><h3 id="x5-6-result-retrieval"><bdi class="secno">5.6 </bdi>Result Retrieval</h3><a class="self-link" href="#result-retrieval" aria-label="Permalink for Section 5.6"></a></div>
 
         <p>The API should enable clients to retrieve the final trained model or other relevant results from the central server.
           It should provide endpoints for requesting and downloading the trained model or aggregated results.
@@ -484,7 +498,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="training-control"><div class="header-wrapper"><h3 id="x5-6-training-control"><bdi class="secno">5.6 </bdi>Training Control</h3><a class="self-link" href="#training-control" aria-label="Permalink for Section 5.4"></a></div>
+			<section id="training-control"><div class="header-wrapper"><h3 id="x5-7-training-control"><bdi class="secno">5.7 </bdi>Training Control</h3><a class="self-link" href="#training-control" aria-label="Permalink for Section 5.7"></a></div>
 
         <p>The API should allow for controlling the federated learning process, such as starting, pausing, or terminating model training.
           It should provide endpoints for managing training sessions, setting training parameters, and monitoring the progress of training.
@@ -492,7 +506,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="security-privacy"><div class="header-wrapper"><h3 id="x5-7-security-privacy"><bdi class="secno">5.7 </bdi>Security and Privacy</h3><a class="self-link" href="#security-privacy" aria-label="Permalink for Section 5.7"></a></div>
+			<section id="security-privacy"><div class="header-wrapper"><h3 id="x5-8-security-privacy"><bdi class="secno">5.8 </bdi>Security and Privacy</h3><a class="self-link" href="#security-privacy" aria-label="Permalink for Section 5.8"></a></div>
 
         <p>The API should incorporate security measures, such as authentication, encryption, and access control, to protect the federated learning system.
           It should ensure the privacy and confidentiality of data during transmission and storage.
@@ -500,7 +514,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 
 			</section>
 
-			<section id="extensibility-compatibility"><div class="header-wrapper"><h3 id="x5-8-extensibility-compatibility"><bdi class="secno">5.8 </bdi>Extensibility and Compatibility</h3><a class="self-link" href="#extensibility-compatibility" aria-label="Permalink for Section 5.8"></a></div>
+			<section id="extensibility-compatibility"><div class="header-wrapper"><h3 id="x5-9-extensibility-compatibility"><bdi class="secno">5.9 </bdi>Extensibility and Compatibility</h3><a class="self-link" href="#extensibility-compatibility" aria-label="Permalink for Section 5.9"></a></div>
 
         <p>The API should be designed with extensibility in mind, allowing for the addition of new functionalities or endpoints in the future.
           It should be compatible with existing web standards and frameworks, facilitating integration with different software platforms and tools.</p>
