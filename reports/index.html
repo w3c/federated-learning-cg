@@ -450,75 +450,92 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 				
         <p>The following requirements have been expressed.</p>
         <ul>
-          <li>APIs <em title="should" class="rfc2119">should</em> be accessible through a unified and structured namespace to ensure ease of understanding.</li>
-          <li>APIs <em title="should" class="rfc2119">should</em> provide operation for cancellation and error handling to improve resilience and controllability.</li>
-          <li>APIs <em title="should" class="rfc2119">should</em> be designed for supporting compatibility across various platforms and devices.</li>
-          <li>The API architecture <em title="should" class="rfc2119">should</em> be extensible, allowing for upgrade and management without breaking existing functionality.</li>
+          <li>APIs <em style="color:red;" title="should" class="rfc2119">should</em> be accessible through a unified and structured namespace to ensure ease of understanding.</li>
+          <li>APIs <em style="color:red;" title="should" class="rfc2119">should</em> provide operation for cancellation and error handling to improve resilience and controllability.</li>
+          <li>APIs <em style="color:red;" title="should" class="rfc2119">should</em> be designed for supporting compatibility across various platforms and devices.</li>
+          <li>The API architecture <em style="color:red;" title="should" class="rfc2119">should</em> be extensible, allowing for upgrade and management without breaking existing functionality.</li>
         </ul>
   
       </section>
 
 			<section id="dev-registration"><div class="header-wrapper"><h3 id="x5-2-dev-registration"><bdi class="secno">5.2 </bdi>Device Registration</h3><a class="self-link" href="#dev-registration" aria-label="Permalink for Section 5.2"></a></div>
 				
-				<p>The API should allow devices or clients to securely register themselves with the federated learning system. 
-          The API should allow devices or clients to securely register themselves with the federated learning system. 
-          The API should provide endpoints for device registration, including necessary parameters and data formats.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> provide secure endpoints to support registration for <font color="red">client</font> devices with the <font color="red">server</font> of federated learning system.</li>
+          <li>The <font color="red">server</font> <em style="color:red;" title="should" class="rfc2119">should</em> validate client credentials and maintain a registry of authorized <font color="red">client</font> devices.</li>
+        </ul>
 			</section>
 
 			<section id="data-upload"><div class="header-wrapper"><h3 id="x5-3-data-upload"><bdi class="secno">5.3 </bdi>Data Upload</h3><a class="self-link" href="#data-upload" aria-label="Permalink for Section 5.3"></a></div>
 
-				<p>The API should enable clients to securely upload their locally held data to the central server or coordinator for model training. 
-          It should support various data formats and provide guidelines for data serialization and transmission. 
-          The API should include endpoints for data submission, metadata specification, and possibly data encryption or anonymization.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> enable <font color="red">clients</font> to upload data securely to the <font color="red">server</font> by support encryption mechanism or data anonymization</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> support multiple data formats to provide efficient data transmission.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> provide metadata specification for various data formats.</li>
+        </ul>
 			</section>
 
 			<section id="model-sync"><div class="header-wrapper"><h3 id="x5-4-model-sync"><bdi class="secno">5.4 </bdi>Model Synchronization</h3><a class="self-link" href="#model-sync" aria-label="Permalink for Section 5.4"></a></div>
 
-        <p>The API should handle the communication and synchronization of model parameters between the central server and client devices.
-          It should provide endpoints for retrieving the current model state, sending model updates from clients to the server, and distributing updated models back to the clients.
-          The API should support efficient and secure transmission of model parameters, taking into account bandwidth limitations and data privacy requirements.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> offer endpoints for <font color="red">clients</font> to download global model and upload local model updates.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> offer endpoints for the <font color="red">server</font> to send back aggregated model updates.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> ensure secure and efficient transmission of model parameters (or gradients), considering network status including bandwidth and latency.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> facilitate version control of models to manage different iterations of the training process.</li>
+        </ul>
 			</section>
 
 			<section id="model-evaluation"><div class="header-wrapper"><h3 id="x5-5-model-evaluation"><bdi class="secno">5.5 </bdi>Model Evaluation</h3><a class="self-link" href="#model-evaluation" aria-label="Permalink for Section 5.5"></a></div>
 
-        <p>The API should include endpoints for clients to request model evaluation on their local data.
-          It should support the transmission of evaluation requests and relevant data securely to the server.
-          The API should allow clients to retrieve evaluation metrics or results from the server.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> allow model evaluation and provide the reports of evaluation results.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> enable the <font color="red">server</font> to process evaluation requests on user demand.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> ensure that the evaluation metrics are consistent and accurately to measure model performance.</li>
+        </ul>
 			</section>      
 
 			<section id="result-retrieval"><div class="header-wrapper"><h3 id="x5-6-result-retrieval"><bdi class="secno">5.6 </bdi>Result Retrieval</h3><a class="self-link" href="#result-retrieval" aria-label="Permalink for Section 5.6"></a></div>
 
-        <p>The API should enable clients to retrieve the final trained model or other relevant results from the central server.
-          It should provide endpoints for requesting and downloading the trained model or aggregated results.
-          The API should ensure secure transmission of results and provide mechanisms for access control to protect sensitive information.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> provide secure endpoints for <font color="red">clients</font> to retrieve and search the final model or aggregated results.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> support versioning and tracking of different model iterations.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> include mechanisms for access control and verification of <font color="red">client</font> authorization.</li>
+        </ul>
 			</section>
 
 			<section id="training-control"><div class="header-wrapper"><h3 id="x5-7-training-control"><bdi class="secno">5.7 </bdi>Training Control</h3><a class="self-link" href="#training-control" aria-label="Permalink for Section 5.7"></a></div>
 
-        <p>The API should allow for controlling the federated learning process, such as starting, pausing, or terminating model training.
-          It should provide endpoints for managing training sessions, setting training parameters, and monitoring the progress of training.
-          The API should support error handling and provide appropriate status codes for different training control operations.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> provide endpoints for control model training process including initiating, pausing, and terminating the process.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> allow <font color="red">clients</font> and the <font color="red">server</font> to monitor training process and log of training status.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> enable dynamic adjustment of training hyper-parameters based on real-time feedback.</li>
+        </ul>
 			</section>
 
 			<section id="security-privacy"><div class="header-wrapper"><h3 id="x5-8-security-privacy"><bdi class="secno">5.8 </bdi>Security and Privacy</h3><a class="self-link" href="#security-privacy" aria-label="Permalink for Section 5.8"></a></div>
 
-        <p>The API should incorporate security measures, such as authentication, encryption, and access control, to protect the federated learning system.
-          It should ensure the privacy and confidentiality of data during transmission and storage.
-          The API should adhere to privacy regulations and best practices for handling sensitive information.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> incorporate end-to-end encryption for data and model transmission.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> implement robust authentication for client-server interactions.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> adhere to data privacy standards and allow for compliance of new regulations.</li>
+        </ul>
 			</section>
 
 			<section id="extensibility-compatibility"><div class="header-wrapper"><h3 id="x5-9-extensibility-compatibility"><bdi class="secno">5.9 </bdi>Extensibility and Compatibility</h3><a class="self-link" href="#extensibility-compatibility" aria-label="Permalink for Section 5.9"></a></div>
 
-        <p>The API should be designed with extensibility in mind, allowing for the addition of new functionalities or endpoints in the future.
-          It should be compatible with existing web standards and frameworks, facilitating integration with different software platforms and tools.</p>
-
+        <p>The following requirements have been expressed.</p>
+        <ul>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> be designed to facilitate the addition of new functionalities or endpoints.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">must</em> ensure backward compatibility with existing federated learning models and systems.</li>
+          <li>The API <em style="color:red;" title="should" class="rfc2119">should</em> support integration with a variety web standards, framework, platforms, and tools.</li>
+        </ul>
 			</section>
       
 		</section>
