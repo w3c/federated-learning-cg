@@ -365,7 +365,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <p>
         The Figure illustrates the basic process of executing federated learning after configuration of central server and client nodes, and setup the topology of model to client nodes.
         <ol>
-          <li><b>Model Training Initiation</b>: Each database B1, B2, ..., Bk is used at their respective client nodes. Each client node uses its local database to train a model independently. </li>
+          <li><b>Model Training Initiation</b>: Each database 1, 2, ..., k is used at their respective client nodes. Each client node uses its local database to train a model independently. </li>
           <li><b>Sending Encrypted Gradients</b>: The gradients (which are the necessary information to update the model) from the trained model are encrypted and sent to central server A. This step is marked as (1) in the diagram.</li>
           <li><b>Secure Aggregation</b>: Server A securely aggregates the encrypted gradients received from various clients. This step is represented as (2) in the diagram. At this stage, the server combines the updates from all clients into one aggregated update.</li>
           <li><b>Sending Back Model Updates</b>: The aggregated update is then sent back to each client node, as indicated by (3) in the diagram. This ensures that each client's model is kept up-to-date.</li>
