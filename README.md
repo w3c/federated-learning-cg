@@ -1,3 +1,6 @@
+> [!CAUTION]
+> The Federated Learning Community Group has closed on 2025-06-25.
+
 # [W3C Federated Learning CG](https://www.w3.org/community/federated-learning/)
 The purpose of the group is to establish and explore the necessary standards related with the Web for federated learning via the analysis of current implementations related with federated learning such as TensorFlow Federated.
 
